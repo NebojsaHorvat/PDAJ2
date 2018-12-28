@@ -1,0 +1,2 @@
+Distribuirano racunanje pozicije penduluma
+
