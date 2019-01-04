@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER Petar Maric <petarmaric@uns.ac.rs>
+MAINTAINER Nebojsa Horvat <horva.n@uns.ac.rs>
 
 # Fix Docker-specific Ubuntu issues
 # (see https://journal.paul.querna.org/articles/2013/10/15/docker-ubuntu-on-rackspace/ for details)
