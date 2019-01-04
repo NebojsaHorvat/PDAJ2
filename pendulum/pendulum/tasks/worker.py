@@ -2,8 +2,6 @@ from math import log
 
 from ..app import app
 
-SCALE_FACTOR_HELPER = 2.
-
 import sys
 import numpy as np
 from scipy.integrate import odeint

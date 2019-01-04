@@ -97,27 +97,6 @@ def seed_computations(ignore_result=True):
     ).delay()
 
 
-## Storing the computed integral tables
-
-def get_hdf5_table_description(used_variables, decimal_precision):
-    columns = dict(
-        (var, tb.UInt8Col(pos=idx))
-        for idx, var in enumerate(used_variables)
-    )
-
-    data_start_pos = len(used_variables)
-    columns['integral_float64'] = tb.Float64Col(pos=data_start_pos)
-    columns['error_float64'] = tb.Float64Col(pos=data_start_pos + 1)
-
-    columns['scale_factor'] = tb.Int8Col(pos=data_start_pos + 2)
-
-    max_len = decimal_precision + 10  # Account for decimal dot and exponent info
-    columns['integral_str'] = tb.StringCol(itemsize=max_len, pos=data_start_pos + 3)
-    columns['error_str'] = tb.StringCol(itemsize=max_len, pos=data_start_pos + 4)
-
-    return columns
-
-
 @app.task
 def store_computed(results):
     import logging
